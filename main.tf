@@ -25,7 +25,7 @@ resource "aws_db_instance" "labyrinth-db" {
   instance_class                        = "db.m6gd.large"
   parameter_group_name                  = "default.mysql8.0"
   password                              = "HashicorpInterns2024"
-  publicly_accessible                   = false
+  publicly_accessible                   = true
   skip_final_snapshot                   = true
   username                              = "admin"
   vpc_security_group_ids                = data.terraform_remote_state.network.outputs.rds_security_group_id
