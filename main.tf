@@ -19,8 +19,8 @@ data "terraform_remote_state" "network" {
 data "hcp_vault_secrets_app" "labyrinth" {
   app_name = "labyrinth"
   secrets = {
-    username
-    password
+    username = "username"
+    password = "password"
   }
 }
 
