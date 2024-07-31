@@ -19,8 +19,8 @@ data "terraform_remote_state" "network" {
 data "hcp_vault_secrets_app" "labyrinth" {
   app_name = "labyrinth"
   secrets = {
-    "username" = data.hcp_vault_secret.username.value  # Example where you might be referencing a value
-    "password" = data.hcp_vault_secret.password.value  # Example where you might be referencing a value
+    username
+    password
   }
 }
 
