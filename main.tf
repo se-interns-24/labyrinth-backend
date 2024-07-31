@@ -16,6 +16,10 @@ data "terraform_remote_state" "network" {
   }
 }
 
+data "hcp_vault_secrets_app" "labyrinth" {
+  app_name = "labyrinth"
+}
+
 resource "aws_db_instance" "labyrinth-db" {
   allocated_storage                     = 20
   db_subnet_group_name                  = data.terraform_remote_state.network.outputs.subnet_group_name
@@ -27,7 +31,7 @@ resource "aws_db_instance" "labyrinth-db" {
   password                              = "HashicorpInterns2024"
   publicly_accessible                   = false
   skip_final_snapshot                   = true
-  username                              = "admin"
+  username                              = data.hcp_vault_secrets_app.labyrinth.username
   vpc_security_group_ids                = data.terraform_remote_state.network.outputs.rds_security_group_id
 
   tags = {
