@@ -31,7 +31,7 @@ resource "aws_db_instance" "labyrinth-db" {
   password                              = "HashicorpInterns2024"
   publicly_accessible                   = false
   skip_final_snapshot                   = true
-  username                              = data.hcp_vault_secrets_app.labyrinth.username
+  username                              = data.hcp_vault_secrets_app.labyrinth
   vpc_security_group_ids                = data.terraform_remote_state.network.outputs.rds_security_group_id
 
   tags = {
