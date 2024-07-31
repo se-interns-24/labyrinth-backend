@@ -18,10 +18,6 @@ data "terraform_remote_state" "network" {
 
 data "hcp_vault_secrets_app" "labyrinth" {
   app_name = "labyrinth"
-  secrets = {
-    username = "username"
-    password = "password"
-  }
 }
 
 resource "aws_db_instance" "labyrinth-db" {
@@ -35,7 +31,7 @@ resource "aws_db_instance" "labyrinth-db" {
   password                              = data.hcp_vault_secrets_app.labyrinth.data["password"]
   publicly_accessible                   = false
   skip_final_snapshot                   = true
-  username                              = data.hcp_vault_secrets_app.labyrinth.data["username"]
+  username                              = data.hcp-vault-secrets_app.labyrinth.username
   vpc_security_group_ids                = data.terraform_remote_state.network.outputs.rds_security_group_id
 
   tags = {
