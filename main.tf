@@ -36,7 +36,7 @@ resource "aws_db_instance" "labyrinth-db" {
   identifier                            = "labyrinth-db"
   instance_class                        = "db.m6gd.large"
   parameter_group_name                  = "default.mysql8.0"
-  password                              = ata.hcp_vault_secrets_secret.password.secret_value
+  password                              = data.hcp_vault_secrets_secret.password.secret_value
   publicly_accessible                   = false
   skip_final_snapshot                   = true
   username                              = data.hcp_vault_secrets_secret.username.secret_value
