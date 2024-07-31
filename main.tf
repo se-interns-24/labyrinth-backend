@@ -18,7 +18,10 @@ data "terraform_remote_state" "network" {
 
 data "hcp_vault_secrets_app" "labyrinth" {
   app_name = "labyrinth"
-  secrets = ["username", "password"]
+  secrets = {
+    "username" = ""  # Placeholder or empty string, you may need to provide actual values
+    "password" = ""  # Placeholder or empty string, you may need to provide actual values
+  }
 }
 
 resource "aws_db_instance" "labyrinth-db" {
