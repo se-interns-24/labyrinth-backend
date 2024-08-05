@@ -34,7 +34,7 @@ resource "aws_db_instance" "labyrinth-db" {
   engine                                = "mysql"
   engine_version                        = "8.0.35"
   identifier                            = "labyrinth-db"
-  instance_class                        = "db.t3.micro"
+  instance_class                        = "db.m6gd.large"
   parameter_group_name                  = "default.mysql8.0"
   password                              = data.hcp_vault_secrets_secret.password.secret_value
   publicly_accessible                   = true
