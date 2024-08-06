@@ -7,5 +7,4 @@ variable "tfc_org_name" {
 variable "tfc_network_workspace_name" {
   description = "Name of the network workspace"
   type        = string
-  default     = "labyrinth-network-dev"
 }
